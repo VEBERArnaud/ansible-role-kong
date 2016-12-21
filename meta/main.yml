@@ -10,7 +10,10 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - all
+        - precise
+        - trusty
+        - vivid
+        - xenial
   galaxy_tags:
     - kong
     - api
