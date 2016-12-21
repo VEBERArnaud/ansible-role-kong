@@ -49,7 +49,7 @@ pg_user = {{ kong_conf_datastore_pg_user }}
 pg_password = {{ kong_conf_datastore_pg_password }}
 pg_database = {{ kong_conf_datastore_pg_database }}
 pg_ssl = {{ kong_conf_datastore_pg_ssl }}
-pg_ssl_verify = {{ kong_conf_datastore_pg_ssl_verify }} # if pg_ssl = on
+{% if kong_conf_datastore_pg_ssl != 'on' %}#{% endif %}pg_ssl_verify = {{ kong_conf_datastore_pg_ssl_verify }}
 
 cassandra_contact_points = {{ kong_conf_datastore_cassandra_contact_points }}
 cassandra_port = {{ kong_conf_datastore_cassandra_port }}
@@ -57,12 +57,12 @@ cassandra_keyspace = {{ kong_conf_datastore_cassandra_keyspace }}
 cassandra_consistency = {{ kong_conf_datastore_cassandra_consistency }}
 cassandra_timeout = {{ kong_conf_datastore_cassandra_timeout }}
 cassandra_ssl = {{ kong_conf_datastore_cassandra_ssl }}
-cassandra_ssl_verify = {{ kong_conf_datastore_cassandra_ssl_verify }} # if cassandra_ssl = on
+{% if kong_conf_datastore_cassandra_ssl != 'on' %}#{% endif %}cassandra_ssl_verify = {{ kong_conf_datastore_cassandra_ssl_verify }}
 cassandra_username = {{ kong_conf_datastore_cassandra_username }}
 cassandra_password = {{ kong_conf_datastore_cassandra_password }}
 cassandra_repl_strategy = {{ kong_conf_datastore_cassandra_repl_strategy }}
-cassandra_repl_factor = {{ kong_conf_datastore_cassandra_repl_factor }} # if cassandra_repl_strategy = SimpleStrategy
-cassandra_data_centers = {{ kong_conf_datastore_cassandra_data_centers }} # if cassandra_repl_strategy = NetworkTopologyStrategy
+{% if kong_conf_datastore_cassandra_repl_strategy != 'SimpleStrategy' %}#{% endif %}cassandra_repl_factor = {{ kong_conf_datastore_cassandra_repl_factor }}
+{% if kong_conf_datastore_cassandra_repl_strategy != 'NetworkTopologyStrategy' %}#{% endif %}cassandra_data_centers = {{ kong_conf_datastore_cassandra_data_centers }}
 
 #------------------------------------------------------------------------------
 # CLUSTERING
@@ -80,8 +80,8 @@ cluster_profile = {{ kong_conf_clustering_cluster_profile }}
 #------------------------------------------------------------------------------
 
 dnsmasq = {{ kong_conf_dns_resolver_dnsmasq }}
-dnsmasq_port = {{ kong_conf_dns_resolver_dnsmasq_port }} # if dnsmasq = on
-dns_resolver = {{ kong_conf_dns_resolver_dns_resolver }} # if dnsmasq = off
+{% if kong_conf_dns_resolver_dnsmasq != 'on' %}#{% endif %}dnsmasq_port = {{ kong_conf_dns_resolver_dnsmasq_port }}
+{% if kong_conf_dns_resolver_dnsmasq != 'off' %}#{% endif %}dns_resolver = {{ kong_conf_dns_resolver_dns_resolver }}
 
 #------------------------------------------------------------------------------
 # DEVELOPMENT & MISCELLANEOUS
