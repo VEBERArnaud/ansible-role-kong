@@ -44,6 +44,10 @@ kong_group: "{{ kong_user }}"
 ```
 
 ```yaml
+kong_conf_dest: /etc/kong/kong.conf
+```
+
+```yaml
 kong_log_dir: /var/log/kong
 ```
 

@@ -16,6 +16,8 @@ kong_dest_deb: /tmp/kong.deb
 kong_user: kong
 kong_group: "{{ kong_user }}"
 
+kong_conf_dest: /etc/kong/kong.conf
+
 kong_log_dir: /var/log/kong
 
 kong_conf_general_prefix: /usr/local/kong/
