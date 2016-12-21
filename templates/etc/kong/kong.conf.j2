@@ -1,0 +1,94 @@
+# -----------------------
+# Kong configuration file
+# -----------------------
+#
+# This file is read when `kong start` or `kong compile` are used. Kong
+# generates the Nginx configuration with the settings specified in this file.
+#
+# All environment variables prefixed with `KONG_` and capitalized will override
+# the settings specified in this file.
+# Example:
+#   `log_level` setting -> `KONG_LOG_LEVEL` env variable
+#
+# Boolean values can be specified as `on`/`off` or `true`/`false`.
+# Lists must be specified as comma-separated strings.
+#
+# You can verify the integrity of your settings with `kong check <conf>`.
+
+#------------------------------------------------------------------------------
+# GENERAL
+#------------------------------------------------------------------------------
+
+prefix = {{ kong_conf_general_prefix }}
+log_level = {{ kong_conf_general_log_level }}
+anonymous_reports = {{ kong_conf_general_anonymous_report }}
+
+#------------------------------------------------------------------------------
+# NGINX
+#------------------------------------------------------------------------------
+
+proxy_listen = {{ kong_conf_nginx_proxy_listen }}
+proxy_listen_ssl = {{ kong_conf_nginx_proxy_listen_ssl }}
+admin_listen = {{ kong_conf_nginx_admin_listen }}
+nginx_worker_processes = {{ kong_conf_nginx_nginx_worker_processes }}
+nginx_daemon = {{ kong_conf_nginx_nginx_daemon }}
+mem_cache_size = {{ kong_conf_nginx_mem_cache_size }}
+ssl = {{ kong_conf_nginx_ssl }}
+ssl_cert = {{ kong_conf_nginx_ssl_cert }}
+ssl_cert_key = {{ kong_conf_nginx_ssl_cert_key }}
+
+#------------------------------------------------------------------------------
+# DATASTORE
+#------------------------------------------------------------------------------
+
+database = {{ kong_conf_datastore_database }}
+
+pg_host = {{ kong_conf_datastore_pg_host }}
+pg_port = {{ kong_conf_datastore_pg_port }}
+pg_user = {{ kong_conf_datastore_pg_user }}
+pg_password = {{ kong_conf_datastore_pg_password }}
+pg_database = {{ kong_conf_datastore_pg_database }}
+pg_ssl = {{ kong_conf_datastore_pg_ssl }}
+pg_ssl_verify = {{ kong_conf_datastore_pg_ssl_verify }} # if pg_ssl = on
+
+cassandra_contact_points = {{ kong_conf_datastore_cassandra_contact_points }}
+cassandra_port = {{ kong_conf_datastore_cassandra_port }}
+cassandra_keyspace = {{ kong_conf_datastore_keyspace }}
+cassandra_consistency = {{ kong_conf_datastore_cassandra_consistency }}
+cassandra_timeout = {{ kong_conf_datastore_cassandra_timeout }}
+cassandra_ssl = {{ kong_conf_datastore_cassandra_ssl }}
+cassandra_ssl_verify = {{ kong_conf_datastore_cassandra_ssl_verify }} # if cassandra_ssl = on
+cassandra_username = {{ kong_conf_datastore_cassandra_username }}
+cassandra_password = {{ kong_conf_datastore_cassandra_password }}
+cassandra_repl_strategy = {{ kong_conf_datastore_cassandra_repl_strategy }}
+cassandra_repl_factor = {{ kong_conf_datastore_cassandra_repl_factor }} # if cassandra_repl_strategy = SimpleStrategy
+cassandra_data_centers = {{ kong_conf_datastore_cassandra_data_centers }} # if cassandra_repl_strategy = NetworkTopologyStrategy
+
+#------------------------------------------------------------------------------
+# CLUSTERING
+#------------------------------------------------------------------------------
+
+cluster_listen = {{ kong_conf_clustering_cluster_listen }}
+cluster_listen_rpc = {{ kong_conf_clustering_cluster_listen_rpc }}
+cluster_advertise = {{ kong_conf_clustering_cluster_advertise }}
+cluster_encrypt_key = {{ kong_conf_clustering_cluster_encrypt_key }}
+cluster_ttl_on_failure = {{ kong_conf_clustering_cluster_ttl_on_failure }}
+cluster_profile = {{ kong_conf_clustering_cluster_profile }}
+
+#------------------------------------------------------------------------------
+# DNS RESOLVER
+#------------------------------------------------------------------------------
+
+dnsmasq = {{ kong_conf_dns_resolver_dnsmasq }}
+dnsmasq_port = {{ kong_conf_dns_resolver_dnsmasq_port }} # if dnsmasq = on
+dns_resolver = {{ kong_conf_dns_resolver_dns_resolver }} # if dnsmasq = off
+
+#------------------------------------------------------------------------------
+# DEVELOPMENT & MISCELLANEOUS
+#------------------------------------------------------------------------------
+
+lua_ssl_trusted_certificate = {{ kong_conf_miscellaneous_lua_ssl_trusted_certificate }}
+lua_ssl_verify_depth = {{ kong_conf_miscellaneous_lua_ssl_verify_depth }}
+lua_code_cache = {{ kong_conf_miscellaneous_lua_code_cache }}
+lua_package_path = {{ kong_conf_miscellaneous_lua_package_path }}
+lua_package_cpath = {{ kong_conf_miscellaneous_lua_package_cpath }}

@@ -1,0 +1,18 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: VEBERArnaud
+  description: Kong Api Gateway for Ubuntu
+  company: VEBERArnaud
+  license: MIT
+  min_ansible_version: 2.0
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - kong
+    - api
+    - gateway
+    - web
