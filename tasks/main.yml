@@ -3,7 +3,7 @@
   apt:
     pkg: "{{ item }}"
     state: installed
-    with_items: "{{ kong_apt_dependencies }}"
+  with_items: "{{ kong_apt_dependencies }}"
 
 - name: Download kong deb package
   get_url:
