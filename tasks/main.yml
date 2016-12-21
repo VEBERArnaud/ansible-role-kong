@@ -30,8 +30,8 @@
   template:
     src: etc/kong/kong.conf.j2
     dest: "{{ kong_conf_dest }}"
-    notify:
-      - reload kong
+  notify:
+    - reload kong
 
 - name: Ensure log service directory exists
   file:
