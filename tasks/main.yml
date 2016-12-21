@@ -40,6 +40,3 @@
     owner: "{{ kong_user }}"
     group: "{{ kong_group }}"
     mode: 0755
-
-- name: Ensure kong is started
-  command: kong start
