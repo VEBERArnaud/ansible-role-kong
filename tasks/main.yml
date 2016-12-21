@@ -3,7 +3,7 @@
   apt:
     pkg: "{{ item }}"
     state: installed
-    with_items: "{{ kong_apt_dependencies }}"
+  with_items: "{{ kong_apt_dependencies }}"
 
 - name: Download kong deb package
   get_url:
@@ -30,8 +30,8 @@
   template:
     src: etc/kong/kong.conf.j2
     dest: "{{ kong_conf_dest }}"
-    notify:
-      - reload kong
+  notify:
+    - reload kong
 
 - name: Ensure log service directory exists
   file:

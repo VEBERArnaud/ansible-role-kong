@@ -16,6 +16,8 @@ kong_dest_deb: /tmp/kong.deb
 kong_user: kong
 kong_group: "{{ kong_user }}"
 
+kong_conf_dest: /etc/kong/kong.conf
+
 kong_log_dir: /var/log/kong
 
 kong_conf_general_prefix: /usr/local/kong/
@@ -46,7 +48,7 @@ kong_conf_datastore_pg_password: kong
 kong_conf_datastore_pg_database: kong
 kong_conf_datastore_pg_ssl: off
 kong_conf_datastore_pg_ssl_verify: off
-kong_conf_datastore_cassandra_contact_point: 127.0.0.1
+kong_conf_datastore_cassandra_contact_points: 127.0.0.1
 kong_conf_datastore_cassandra_port: 9042
 kong_conf_datastore_cassandra_keyspace: kong
 kong_conf_datastore_cassandra_consistency: ONE
