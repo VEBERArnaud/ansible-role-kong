@@ -1,0 +1,6 @@
+---
+- name: restart kong
+  command: "kong restart -c {{ kong_conf_dest }}"
+
+- name: reload kong
+  service: "kong reload -c {{ kong_conf_dest }}"
