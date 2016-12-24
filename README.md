@@ -27,7 +27,7 @@ kong_apt_dependencies:
 ```
 
 ```yaml
-kong_source_ver: 0.9.6
+kong_source_ver: 0.9.7
 ```
 ```yaml
 kong_source_deb: "https://github.com/Mashape/kong/releases/download/{{ kong_source_ver }}/kong-{{ kong_source_ver }}.{{ ubuntu_flavor }}_all.deb"
