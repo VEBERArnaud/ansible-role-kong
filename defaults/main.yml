@@ -9,7 +9,7 @@ kong_apt_dependencies:
   - procps
   - perl
 
-kong_source_ver: 0.9.6
+kong_source_ver: 0.9.7
 kong_source_deb: "https://github.com/Mashape/kong/releases/download/{{ kong_source_ver }}/kong-{{ kong_source_ver }}.{{ ubuntu_flavor }}_all.deb"
 kong_dest_deb: /tmp/kong.deb
 
