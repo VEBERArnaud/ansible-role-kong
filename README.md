@@ -37,7 +37,7 @@ kong_log_dir: /var/log/kong
 ```yaml
 kong_conf_general_prefix:   /usr/local/kong/
 kong_conf_general_log_level: notice
-kong_conf_general_anonymous_report: on
+kong_conf_general_anonymous_report: "on"
 ```
 
 ##### Kong `Nginx` configuration
@@ -53,9 +53,9 @@ kong_conf_nginx_admin_listen_host: 0.0.0.0
 kong_conf_nginx_admin_listen_port: 8001
 kong_conf_nginx_admin_listen: "{{ kong_conf_nginx_admin_listen_host }}:{{ kong_conf_nginx_admin_listen_port }}"
 kong_conf_nginx_nginx_worker_processes: auto
-kong_conf_nginx_nginx_daemon: on
+kong_conf_nginx_nginx_daemon: "on"
 kong_conf_nginx_mem_cache_size: 128m
-kong_conf_nginx_ssl: on
+kong_conf_nginx_ssl: "on"
 kong_conf_nginx_ssl_cert: ""
 kong_conf_nginx_ssl_cert_key: ""
 ```
@@ -69,15 +69,15 @@ kong_conf_datastore_pg_port: 5432
 kong_conf_datastore_pg_user: kong
 kong_conf_datastore_pg_password: kong
 kong_conf_datastore_pg_database: kong
-kong_conf_datastore_pg_ssl: off
-kong_conf_datastore_pg_ssl_verify: off
+kong_conf_datastore_pg_ssl: "off"
+kong_conf_datastore_pg_ssl_verify: "off"
 kong_conf_datastore_cassandra_contact_point: 127.0.0.1
 kong_conf_datastore_cassandra_port: 9042
 kong_conf_datastore_cassandra_keyspace: kong
 kong_conf_datastore_cassandra_consistency: ONE
 kong_conf_datastore_cassandra_timeout: 5000
-kong_conf_datastore_cassandra_ssl: off
-kong_conf_datastore_cassandra_ssl_verify: off
+kong_conf_datastore_cassandra_ssl: "off"
+kong_conf_datastore_cassandra_ssl_verify: "off"
 kong_conf_datastore_cassandra_username: kong
 kong_conf_datastore_cassandra_password: kong
 kong_conf_datastore_cassandra_repl_strategy: SimpleStrategy
@@ -103,7 +103,7 @@ kong_conf_clustering_cluster_profile: wan
 ##### Kong `DNS Resolver` configuration
 
 ```yaml
-kong_conf_dns_resolver_dnsmasq: on
+kong_conf_dns_resolver_dnsmasq: "on"
 kong_conf_dns_resolver_dnsmasq_port: 8053
 kong_conf_dns_resolver_dns_resolver: 8.8.8.8
 ```
@@ -113,7 +113,7 @@ kong_conf_dns_resolver_dns_resolver: 8.8.8.8
 ```yaml
 kong_conf_miscellaneous_lua_ssl_trusted_certificate: ""
 kong_conf_miscellaneous_lua_ssl_verify_depth: 1
-kong_conf_miscellaneous_lua_code_cache: on
+kong_conf_miscellaneous_lua_code_cache: "on"
 kong_conf_miscellaneous_lua_package_path: ""
 kong_conf_miscellaneous_lua_package_cpath: ""
 ```
