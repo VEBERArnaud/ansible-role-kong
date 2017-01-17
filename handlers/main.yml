@@ -1,0 +1,7 @@
+---
+- name: start kong
+  command: /usr/local/bin/kong start
+
+- name: reload kong
+  command: /usr/local/bin/kong reload
+
