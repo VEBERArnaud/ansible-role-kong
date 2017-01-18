@@ -81,3 +81,5 @@ kong_conf_miscellaneous_lua_ssl_verify_depth: 1
 kong_conf_miscellaneous_lua_code_cache: "on"
 kong_conf_miscellaneous_lua_package_path: ""
 kong_conf_miscellaneous_lua_package_cpath: ""
+
+kong_service_start: false

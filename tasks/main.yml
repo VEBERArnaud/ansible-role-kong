@@ -45,3 +45,4 @@
   changed_when: ps_output.stdout.find('kong -c nginx.conf') == -1
   register: ps_output
   notify: start kong
+  when: kong_service_start
