@@ -4,4 +4,4 @@
 
 - name: reload kong
   command: /usr/local/bin/kong reload
-
+  when: kong_service_reload

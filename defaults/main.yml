@@ -83,3 +83,4 @@ kong_conf_miscellaneous_lua_package_path: ""
 kong_conf_miscellaneous_lua_package_cpath: ""
 
 kong_service_start: false
+kong_service_reload: false
