@@ -13,7 +13,8 @@ Installs Kong (> v0.9.X) on Ubuntu servers.
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
 ```yaml
-ubuntu_flavor: xenial
+# Example for debian
+system_flavor: jessie
 
 kong_apt_dependencies:
   - netcat
@@ -23,8 +24,8 @@ kong_apt_dependencies:
   - procps
   - perl
 
-kong_source_ver: 0.9.7
-kong_source_deb: "https://github.com/Mashape/kong/releases/download/{{ kong_source_ver }}/kong-{{ kong_source_ver }}.{{ ubuntu_flavor }}_all.deb"
+kong_source_ver: 0.11.2
+kong_source_deb: "https://bintray.com/kong/kong-community-edition-deb/download_file?file_path=dists/kong-community-edition-{{ kong_source_ver }}.{{ system_flavor }}.all.deb"
 kong_dest_deb: /tmp/kong.deb
 kong_user: kong
 kong_group: "{{ kong_user }}"
