@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/VEBERArnaud/ansible-role-kong.svg?branch=master)](https://travis-ci.org/VEBERArnaud/ansible-role-kong)
 
-Installs Kong (> v0.9.X) on Ubuntu servers.
+Installs Kong (> v0.11.X) on Debian servers.
 
 ## Requirements
 
@@ -89,24 +89,16 @@ kong_conf_datastore_cassandra_data_centers: dc1:2,dc2:3
 ##### Kong `Clustering` configuration
 
 ```yaml
-kong_conf_clustering_cluster_listen_ip: 0.0.0.0
-kong_conf_clustering_cluster_listen_port: 7946
-kong_conf_clustering_cluster_listen: "{{ kong_conf_clustering_cluster_listen_ip }}:{{ kong_conf_clustering_cluster_listen_port }}"
-kong_conf_clustering_cluster_listen_rpc_ip: 127.0.0.1
-kong_conf_clustering_cluster_listen_rpc_port: 7373
-kong_conf_clustering_cluster_listen_rpc: "{{ kong_conf_clustering_cluster_listen_rpc_ip }}:{{ kong_conf_clustering_cluster_listen_rpc_port }}"
-kong_conf_clustering_cluster_advertise: ""
-kong_conf_clustering_cluster_encrypt_key: ""
-kong_conf_clustering_cluster_ttl_on_failure: 3600
-kong_conf_clustering_cluster_profile: wan
+kong_db_update_frequency: 5
+kong_db_update_propagation: 0
+kong_db_cache_ttl: 3600
 ```
 
 ##### Kong `DNS Resolver` configuration
 
 ```yaml
-kong_conf_dns_resolver_dnsmasq: "on"
-kong_conf_dns_resolver_dnsmasq_port: 8053
-kong_conf_dns_resolver_dns_resolver: 8.8.8.8
+
+kong_dns_resolver: 8.8.8.8
 ```
 
 ##### Kong `Miscellaneous` configuration
