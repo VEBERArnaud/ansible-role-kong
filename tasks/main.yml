@@ -30,6 +30,7 @@
   template:
     src: etc/kong/kong.conf.j2
     dest: "{{ kong_conf_dest }}"
+  notify: "restart kong {{ kong_daemon_manager }}"
 
 - name: Ensure log service directory exists
   file:
@@ -38,3 +39,10 @@
     owner: "{{ kong_user }}"
     group: "{{ kong_group }}"
     mode: 0755
+
+- name: Detecting if kong running
+  command: "ps auxw"
+  changed_when: ps_output.stdout.find('kong -c nginx.conf') == -1
+  register: ps_output
+  notify: "start kong {{ kong_daemon_manager }}"
+  when: kong_service_start | bool

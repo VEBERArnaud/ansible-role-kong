@@ -38,6 +38,19 @@ kong_log_dir: /var/log/kong
 kong_conf_general_prefix:   /usr/local/kong/
 kong_conf_general_log_level: notice
 kong_conf_general_anonymous_report: "on"
+
+# kong_daemon_manager: [binary|supervisor]
+#  binary: use the kong binary directly
+#  supervisor: use supervisorctl module
+kong_daemon_manager: "binary"
+
+# Ensure kong is started
+kong_service_start: false
+# Allow kong restart/reload
+kong_service_restart: false
+
+# If you use kong with supervisord, provide the application name declared
+kong_supervisor_app_name: kong
 ```
 
 ##### Kong `Nginx` configuration
