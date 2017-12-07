@@ -1,7 +1,29 @@
 ---
-- name: start kong
-  command: /usr/local/bin/kong start
 
-- name: reload kong
+##########
+# binary
+##########
+
+- name: start kong binary
+  command: /usr/local/bin/kong start
+  when: kong_service_start | bool
+
+- name: restart kong binary
   command: /usr/local/bin/kong reload
-  when: kong_service_reload
+  when: kong_service_restart | bool
+
+##########
+# supervisor
+##########
+
+- name: start kong supervisor
+  supervisorctl:
+    name: "{{ kong_supervisor_app_name }}"
+    state: started
+  when: kong_service_start | bool
+
+- name: restart kong supervisor
+  supervisorctl:
+    name: "{{ kong_supervisor_app_name }}"
+    state: restarted
+  when: kong_service_restart | bool
